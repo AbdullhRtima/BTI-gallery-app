@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useEffect, useMemo } from 'react';
-import axios, { } from 'axios';
+import axios from 'axios';
 
 import './gallery.css';
 
@@ -13,8 +13,11 @@ const Gallery = () => {
         return images.map(image => {
             console.log("🚀 ~ file: Gallery.jsx ~ line 19 ~ renderImages ~ image", image)
             return (
-                <div key={image.id}>
+                <div className='img-cell' key={image.id}>
                     <img className='img' src={image.urls.small} alt={image.id} />
+                    <p className='bio'>
+                        {image.user.bio}
+                    </p>
                 </div>
             )
         })
